@@ -22,13 +22,17 @@
             <form action="{{ route('books.store') }}" method="POST">
                 @csrf
                 <div class="mb-3 col-md-12 col-sm-12">
-                    <label for="title" class="form-label">Judul</label>
-                    <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
+                    <label for="isbn" class="form-label">isbn</label>
+                    <input type="text" class="form-control" id="isbn" name="isbn" value="{{ old('isbn') }}">
+                </div>
+                <div class="mb-3 col-md-12 col-sm-12">
+                    <label for="judul" class="form-label">Judul</label>
+                    <input type="text" class="form-control" id="judul" name="judul" value="{{ old('judul') }}">
                 </div>
 
                 <div class="mb-3 col-md-12 col-sm-12">
                     <label for="body" class="form-label">Halaman</label>
-                    <input type="number"class="form-control" rows="10" name="body">{{ old('body') }}
+                    <input type="number"class="form-control" rows="10" name="halaman">{{ old('halaman') }}
                 </div>
 
                 <div class="mb-3 col-md-12 col-sm-12">
@@ -49,8 +53,12 @@
                 </div>
 
                 <div class="mb-3 col-md-12 col-sm-12">
-                    <label class="form-label" for="is_penerbit">Penerbit</label>
-                    <input class="form-control" id="is_penerbit" name="is_penerbit">
+                    <label class="form-label" for="penerbit">Penerbit</label>
+                    <input class="form-control" id="penerbit" name="penerbit">
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <label class="form-check-label" for="is_published">Publish?</label>
+                    <input class="form-check-input" type="checkbox" id="is_published" name="is_published">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Save</button>
             </form>

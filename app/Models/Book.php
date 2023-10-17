@@ -13,6 +13,7 @@ class Book extends Model
         'halaman',
         'kategori',
         'penerbit',
+        'published_at',
         'views',
     ];
 }

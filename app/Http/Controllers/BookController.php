@@ -30,17 +30,23 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|string|min:3|max:255',
-            'body' => 'required|string',
-        ]);
-        $book = Book::create([
-            'judul' => ['judul'],
-            'halaman' => ['halaman'],
-            'kategori' => ['kategori'],
-            'penerbit' => ['penerbit'],
+            'isbn' => 'required|size:13',
+            'judul' => 'required|string|min:3|max:255',
+            'halaman' => 'required|integer',
+            'kategori' => 'nullable|string',
+            'penerbit' => 'required|string',
         ]);
 
-        return $book;
+        $book = new Book();
+        $book->isbn = $validated['isbn'];
+        $book->judul = $validated['judul'];
+        $book->halaman = $validated['halaman'];
+        $book->kategori = $validated['kategori'] ?? 'uncategorized';
+        $book->penerbit = $validated['penerbit'];
+        $book->save();
+
+        return redirect()->route('books.index')->with('success', 'Buku telah berhasil ditambahkan.');
+        // return redirect()->route('books.index')->with('success', 'Buku telah berhasil ditambahkan.');
     }
 
     /**
