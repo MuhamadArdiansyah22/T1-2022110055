@@ -37,4 +37,4 @@ Route::get('/contact-us', [ContactController::class, 'index']);
 Route::post('/contact-us', [ContactController::class, 'store']);
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us.index');
 Route::post('/contact-us', [ContactController::class, 'store'])->name('contact-us.store');
-Route::resource('articles', BookController::class);
+Route::resource('books', BookController::class);
